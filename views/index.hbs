@@ -1,2 +1,188 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+<section class="section main">
+    <div class="container">
+        <div class="columns">
+            <div class="column is-3">
+                <div class="card is-fullwidth">
+                    <header class="card-header" style="background: url({{data.userData.headerPic}});">
+                    </header>
+                    <div class="card-content perfundo">
+                        <a class="card-avatar perfundo__link" href="#big">
+                            <img src="{{data.userData.profilePic}}" class="card-avatar-img">
+                        </a>
+                        <div id="big" class="perfundo__overlay fadeInLeft">
+                            <figure class="perfundo__content perfundo__figure">
+                                <img src="{{data.userData.profilePic}}" alt="my progile pic">
+                                <div class="perfundo__image big" style="background-image: url({{data.userData.profilePic}});"></div>
+                                <figcaption class="perfundo__figcaption">It's Me</figcaption>
+                            </figure>
+                            <a href="#close" class="perfundo__close perfundo__control">Close</a>
+                        </div>
+                        <div class="card-user">
+                            <div class="card-user-name">
+                                <a href="#">{{data.userData.name}}</a>
+                            </div>
+                            <span>
+                                <a href="https://twitter.com/shadygkhalifa">@<span>{{data.userData.username}}</span></a>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="card-stats">
+                        <ul class="card-stats-list">
+                            <li class="card-stats-item">
+                                <a href="#" title="messages">
+                                    <span class="card-stats-key">Messages</span>
+                                    <span class="card-stats-val">{{feedback.length}}</span>
+                                </a>
+                            </li>
+                            <li class="card-stats-item">
+                                <a href="{{data.userData.facebook}}" target="_blank" title="facebook">
+                                    <span class="card-stats-key">Facebook</span>
+                                    <span class="card-stats-val">
+                                        <i class="fa fa-facebook-square" aria-hidden="true"></i>
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="card-stats-item">
+                                <a href="{{data.userData.github}}" target="_blank">
+                                    <span class="card-stats-key">GitHub</span>
+                                    <span class="card-stats-val">
+                                        <i class="fa fa-github-square" aria-hidden="true"></i>
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="column is-6">
+                <div id="messageArea">
+                    <div class="field">
+                        <label class="label">Message</label>
+                        <div class="control">
+                            <textarea id="message" class="textarea is-medium" placeholder="Hi ?"></textarea>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="columns is-mobile">
+                            <div class="column is-11 is-offset-4">
+                                <div class="control">
+                                    <a id="sendMessage" class="button is-primary is-outlined is-medium">
+                                <span class="icon is-medium">
+                                    <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                                </span>
+                                        <span>Send</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <div id="thankYou" class="wow fadeInDown" data-wow-duration="2s" data-wow-delay="1s" style="display: none;">
+                <article class="message is-success">
+                    <div class="message-header">
+                        <p>Success</p>
+                        <button id="closeThankYou" class="delete" aria-label="delete"></button>
+                    </div>
+                    <div class="message-body">
+                        Thank You for Feedback, I will reply to it soon
+                    </div>
+                </article>
+            </div>
+                <div class="spacer"></div>
+                {{#each feedback}}
+                <div class="box wow fadeInUp" data-wow-duration="2s" data-wow-delay="1s">
+                    <article class="media">
+                        <div class="media-left">
+                            <figure class="image is-64x64">
+                                <img src="{{@root.data.senderData.profilePic}}" alt="Image" class="card-avatar-img">
+                            </figure>
+                        </div>
+                        <div class="media-content">
+                            <div class="content">
+                                <p>
+                                    <strong>{{@root.data.senderData.name}}</strong>
+                                    <small>@{{@root.data.senderData.username}}</small>
+                                    <small class="time" style="float:right;">
+                                        {{message.text.createdAt}}
+                                    </small>
+                                    <br>
+                                    {{message.text.value}}
+                                </p>
+                            </div>
+                            <nav  class="level">
+                            {{#if message.reply.value}}
+                                <article class="media">
+                                    <div class="media-left">
+                                        <figure class="image is-64x64">
+                                            <img src="{{@root.data.userData.profilePic}}" alt="Image" class="card-avatar-img">
+                                        </figure>
+                                    </div>
+                                    <div class="media-content">
+                                        <div class="content">
+                                            <p>
+                                                <strong>{{@root.data.userData.name}}</strong>
+                                                <small class="time" style="float:right;">
+                                                    {{message.reply.createdAt}}
+                                                </small>
+                                                <br>
+                                                {{message.reply.value}}
+                                            </p>
+                                        </div>
+                                        <nav  class="level">
+
+                                        </nav >
+                                    </div>
+                                </article>
+                            {{/if}}
+                            </nav >
+                        </div>
+                    </article>
+                </div>
+                {{/each}}
+                <div class="spacer"></div>
+            </div>
+            <div class="column is-3 is-hidden-touch">
+                <div class="box">
+                    <p><span class="title is-5">Follow Me</span></p>
+                    <hr>
+                    <div class="columns">
+                        <div class="column is-3 is-marginless">
+                            <div style="font-size: 44px;">
+                                <i class="fa fa-facebook-square fa-6x" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                        <div class="column is-9">
+                            <a class="button is-primary is-small" target="_blank" href="{{data.userData.facebook}}" style="margin-top: 20px;">
+                                <span>+ Follow</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="columns">
+                        <div class="column is-3 is-marginless">
+                            <div class="image" style="font-size: 44px;">
+                                <i class="fa fa-twitter-square fa-6x" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                        <div class="column is-9">
+                            <a class="button is-primary is-small" target="_blank" href="{{data.userData.twitter}}" style="margin-top: 20px;">
+                                <span>+ Follow</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="columns">
+                        <div class="column is-3 is-marginless">
+                            <div class="image" style="font-size: 44px;">
+                                <i class="fa fa-github-square fa-6x" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                        <div class="column is-9">
+                            <a class="button is-primary is-small" target="_blank" href="{{data.userData.github}}" style="margin-top: 20px;">
+                                <span>+ Follow</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
