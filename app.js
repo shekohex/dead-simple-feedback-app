@@ -9,7 +9,7 @@ const favicon = require('serve-favicon')
 const logger = require('morgan')
 const bodyParser = require('body-parser')
 const passport = require('./passport')
-
+const database = require('./database')
 let index = require('./routes/index')
 let feedback = require('./routes/feedback')
 let manager = require('./routes/manager')
@@ -40,12 +40,14 @@ app.use(express.static(path.join(__dirname, 'public')))
 app.use(passport.initialize())
 app.use(passport.session())
 
-/*
-deactivate this route after finish your setup
+
+//deactivate this route after finish your setup
 app.get('/setup', (req, res) => {
    let settings = new database.websiteSettings({
        settings: {
-           title: 'Give Me a Feedback'
+           title: 'Give Me a Feedback',
+           adminName: 'shekohex',
+           passPhrase: 'password'
        },
        userData: {
            username: 'shadygkhalifa',
@@ -65,7 +67,7 @@ app.get('/setup', (req, res) => {
     settings.save()
     res.send(settings)
 })
-*/
+
 
 //routes
 app.use('/', index)
