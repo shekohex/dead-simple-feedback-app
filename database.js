@@ -1,6 +1,8 @@
 const mongoose = require('mongoose')
 const feedback = require('./models/feedbacks')
 const settings = require('./models/settings')
+const dotenv = require('dotenv')
+dotenv.config()
 let config = {
     dbUsername: process.env.DB_USERNAME,
     dbPassword: process.env.DB_PASSWORD,
