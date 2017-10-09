@@ -4,11 +4,33 @@
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="Give Me honest feedback To discover my strengths and areas for improvement" />
+      <title>{{data.userData.name}} | {{data.settings.title}}</title>
+      <!-- Schema.org markup for Google+ -->
+      <meta itemprop="name" content="{{data.userData.name}} | {{data.settings.title}}">
+      <meta itemprop="description" content="Give Me honest feedback To discover my strengths and areas for improvement">
+      <meta itemprop="image" content="{{data.userData.profilePic}}">
+
+      <!-- Twitter Card data -->
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:site" content="@{{data.userData.username}}">
+      <meta name="twitter:title" content="{{data.userData.name}} | {{data.settings.title}}">
+      <meta name="twitter:description" content="Give Me honest feedback To discover my strengths and areas for improvement">
+      <meta name="twitter:creator" content="@{{data.userData.username}}">
+      <!-- Twitter summary card with large image must be at least 280x150px -->
+      <meta name="twitter:image:src" content="{{data.userData.profilePic}}">
+
+      <!-- Open Graph data -->
+      <meta property="og:title" content="{{data.userData.name}} | {{data.settings.title}}" />
+      <meta property="og:type" content="website" />
+      <meta property="og:url" content=http://shadykhalifa.tk/" />
+      <meta property="og:image" content="{{data.userData.profilePic}}" />
+      <meta property="og:description" content="Give Me honest feedback To discover my strengths and areas for improvement" />
+      <meta property="og:site_name" content="{{data.userData.name}} | {{data.settings.title}}" />
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.3/css/bulma.min.css" />
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/perfundo/3.1.1/perfundo.min.css" />
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/animatecss/3.5.2/animate.min.css" />
-        <title>{{data.userData.name}} | {{data.settings.title}}</title>
       <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
