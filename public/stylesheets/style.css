@@ -38,6 +38,9 @@ body {
   padding: 0;
 }
 
+.send {
+    border-radius: 35px;
+}
 .card-avatar {
   background-color: #fff;
   border-radius: 50%;

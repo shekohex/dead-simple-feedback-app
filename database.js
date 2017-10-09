@@ -2,11 +2,11 @@ const mongoose = require('mongoose')
 const feedback = require('./models/feedbacks')
 const settings = require('./models/settings')
 let config = {
-    dbUsername: 'shekohex',
-    dbPassword: '123456',
-    dbServer: 'ds147534.mlab.com',
-    dbPort:'47534',
-    dbName:'feed-back'
+    dbUsername: process.env.DB_USERNAME,
+    dbPassword: process.env.DB_PASSWORD,
+    dbServer: process.env.DB_SERVER,
+    dbPort: process.env.DB_PORT,
+    dbName: process.env.DB_NAME
 }
 const dbUrl = `mongodb://${config.dbUsername}:${config.dbPassword}@${config.dbServer}:${config.dbPort}/${config.dbName}`
 //Set up default mongoose connection

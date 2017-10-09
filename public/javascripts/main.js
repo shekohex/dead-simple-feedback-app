@@ -31,6 +31,10 @@ document.onreadystatechange = () => {
             console.log(moment(times[i].innerText).fromNow())
         }
     }
+    let lastMessageId = document.getElementById('last-message').value
+    if(lastMessageId !== ''){
+        document.getElementById('last-message').scrollIntoView()
+    }
 }
 let messageText = document.getElementById('message')
 document.getElementById("sendMessage").addEventListener("click", event => {

@@ -1,0 +1,174 @@
+<div class="section">
+    <div class="columns">
+        <main class="column">
+            <div class="level">
+                <div class="level-left">
+                    <div class="level-item">
+                        <div class="title">Dashboard</div>
+                    </div>
+                </div>
+                <div class="level-right">
+                    <div class="level-item">
+                            <img src="{{data.userData.profilePic}}" class="card-avatar-img" alt="my profile pic">
+                    </div>
+                </div>
+                <div class="level-right">
+                    <div class="level-item">
+                        <a href="/manager/logout">Logout</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="columns is-multiline">
+                <div class="column">
+                    <div class="box">
+                        <div class="heading">Total Messages</div>
+                        <div id="total-messages" class="title">{{feedback.length}}</div>
+                        <div class="level">
+                            <div class="level-item">
+                                <div class="">
+                                    <div class="heading">Replied</div>
+                                    <div id="replied" class="title is-5">{{replied.length}}</div>
+                                </div>
+                            </div>
+                            <div class="level-item">
+                                <div class="">
+                                    <div class="heading">To Reply</div>
+                                    <div id="to-reply" class="title is-5">{{unReplied.length}}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="columns is-multiline">
+                <div class="column is-6">
+                    <div class="panel">
+                        <p class="panel-heading">
+                            Un Replied Messages
+                        </p>
+                        <div id="deleted" class="wow fadeInDown" data-wow-duration="0.5s" data-wow-delay="1s" style="display: none;">
+                            <div class="notification is-primary">
+                                <button id="close-deleted" class="delete"></button>
+                                Message Deleted..
+                            </div>
+                        </div>
+                        <div class="spacer"></div>
+                            {{#each unReplied}}
+                                <div id="{{_id}}" class="box wow fadeInUp un-replied-message" data-wow-duration="1s" data-wow-delay="0.5s">
+                                    <article class="media">
+                                        <div class="media-left">
+                                            <figure class="image is-64x64">
+                                                <img src="{{@root.data.senderData.profilePic}}" alt="Image" class="card-avatar-img">
+                                            </figure>
+                                        </div>
+                                        <div class="media-content">
+                                            <div class="content">
+                                                <p>
+                                                    <strong>{{@root.data.senderData.name}}</strong>
+                                                    <small>@{{@root.data.senderData.username}}</small>
+                                                    <small class="time" style="float:right;">{{message.text.createdAt}}</small>
+                                                    <br>
+                                                    {{message.text.value}}
+                                                </p>
+                                            </div>
+                                            <nav class="level is-mobile">
+                                                <div class="level-left">
+                                                    <a class="level-item">
+                                                        <span class="icon is-small reply-message"><i class="fa fa-reply"></i></span>
+                                                    </a>
+                                                    <a class="level-item">
+                                                        <span class="icon is-small delete-message"><i class="fa fa-trash-o"></i></span>
+                                                    </a>
+                                                </div>
+                                            </nav>
+                                            <textarea id="reply-to-{{_id}}-text" style="display: none;" class="textarea" placeholder="Your Reply ?" rows="2"></textarea>
+                                            <div class="spacer"></div>
+                                            <a id="reply-to-{{_id}}-button" style="display: none; border-radius: 35px;" class="button is-primary is-outlined send-reply">Reply</a>
+
+                                        </div>
+                                    </article>
+                                </div>
+                            {{/each}}
+                            <div class="spacer"></div>
+                    </div>
+                </div>
+                <div class="column is-6">
+                    <div class="panel">
+                        <p class="panel-heading">
+                            Replied Messages
+                        </p>
+
+                        <div class="spacer"></div>
+                        {{#each replied}}
+                            <div id="{{_id}}" class="box wow fadeInUp un-replied-message" data-wow-duration="0.5s" data-wow-delay="0.5s">
+                                <article class="media">
+                                    <div class="media-left">
+                                        <figure class="image is-64x64">
+                                            <img src="{{@root.data.senderData.profilePic}}" alt="Image" class="card-avatar-img">
+                                        </figure>
+                                    </div>
+                                    <div class="media-content">
+                                        <div class="content">
+                                            <p>
+                                                <strong>{{@root.data.senderData.name}}</strong>
+                                                <small>@{{@root.data.senderData.username}}</small>
+                                                <small class="time" style="float:right;">
+                                                    {{message.text.createdAt}}
+                                                </small>
+                                                <br>
+                                                {{message.text.value}}
+                                            </p>
+                                        </div>
+                                        <nav  class="level is-mobile">
+                                            {{#if message.reply.value}}
+                                                <article class="media">
+                                                    <div class="media-left">
+                                                        <figure class="image is-64x64">
+                                                            <img src="{{@root.data.userData.profilePic}}" alt="Image" class="card-avatar-img">
+                                                        </figure>
+                                                    </div>
+                                                    <div class="media-content">
+                                                        <div class="content">
+                                                            <p>
+                                                                <strong>{{@root.data.userData.name}}</strong>
+                                                                <small class="time" style="float:right;">
+                                                                    {{message.reply.createdAt}}
+                                                                </small>
+                                                                <br>
+                                                                {{message.reply.value}}
+                                                            </p>
+                                                        </div>
+                                                        <nav  class="level">
+
+                                                        </nav >
+                                                    </div>
+                                                </article>
+                                            {{/if}}
+                                                <div class="level-left">
+                                                    <a class="level-item">
+                                                        <span class="icon is-small reply-message"><i class="fa fa-reply"></i></span>
+                                                    </a>
+                                                    <a class="level-item">
+                                                        <span class="icon is-small delete-message"><i class="fa fa-trash-o"></i></span>
+                                                    </a>
+                                                </div>
+                                            </nav>
+                                        <textarea id="reply-to-{{_id}}-text" style="display: none;" class="textarea" placeholder="Your Reply ?" rows="2"></textarea>
+                                        <div class="spacer"></div>
+                                        <a id="reply-to-{{_id}}-button" style="display: none; border-radius: 35px;" class="button is-primary is-outlined send-reply">Reply</a>
+
+                                    </div>
+                                </article>
+                            </div>
+                        {{/each}}
+                        <div class="spacer"></div>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+</div>
+<script src="/javascripts/dashboard.js" type="application/javascript"></script>

@@ -25,13 +25,14 @@ router.post('/add', (req, res, next) => {
             }
         })
         feedback.save()
+        req.session.lastMessage = feedback._id
       res.status(200).json({
           status: true,
           message: feedback
       })
     }
 })
-router.post('/reply', (req, res, next) => {
+router.post('/reply', require('connect-ensure-login').ensureLoggedIn('/'), (req, res, next) => {
     if (req.body.reply === null) {
         res.status(400).json({
             status: false,
@@ -47,7 +48,8 @@ router.post('/reply', (req, res, next) => {
           feedback.findOneAndUpdate({ '_id': req.body.id },
             {
                 $set: {
-                        'message.reply.value': req.body.reply
+                        'message.reply.value': req.body.reply,
+                        'message.reply.createdAt': Date.now()
                 }
             }, { new: true }).then(result => {
               res.status(200).json({
@@ -55,7 +57,22 @@ router.post('/reply', (req, res, next) => {
                   message: result
               })
           })
-
+    }
+})
+router.post('/delete', require('connect-ensure-login').ensureLoggedIn('/'), (req, res, next) => {
+    if (req.body.id === null) {
+        res.status(400).json({
+            status: false,
+            message: 'id is null'
+        })
+    } else {
+        let feedback = database.feedBacks
+        feedback.findByIdAndRemove(req.body.id).then(result => {
+            res.status(200).json({
+                status: true,
+                message: result
+            })
+        })
     }
 })
 module.exports = router

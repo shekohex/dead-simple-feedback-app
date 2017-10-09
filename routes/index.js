@@ -4,16 +4,17 @@ const database = require('./../database')
 
 /* GET home page. */
 router.get('/', (req, res) => {
-    let data = null
-    database.websiteSettings.findOne({}).then(result => {
-        data = result
+    database.websiteSettings.findOne({}).then(data => {
+        database.feedBacks.find({
+            'message.reply.value': { $exists: true }
+        },[], { sort:{
+            'message.text.createdAt': -1 //Sort by Date Added DESC
+        }}).then(result => {
+            res.render('index', { data, feedback: result, lastMessage: req.session.lastMessage})
+        }).catch(err => {
+            console.log(err)
+        })
     })
-    database.feedBacks.find({}).then(result => {
-        res.render('index', { data, feedback: result })
-    }).catch(err => {
-        console.log(err)
-    })
-
 })
 
 module.exports = router

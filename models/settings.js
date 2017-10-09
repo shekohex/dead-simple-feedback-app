@@ -2,7 +2,9 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 const settingsSchema = new Schema({
     settings: {
-        title: String
+        title: String,
+        adminName: { type: String, index : { unique : true } },
+        passPhrase: String
     },
     userData: {
         username: String,

@@ -1,0 +1,65 @@
+<link rel='stylesheet' href='/stylesheets/login.css' />
+<div class="login-wrapper columns">
+    <div class="column is-8 is-hidden-mobile hero-banner">
+        <section class="hero is-fullheight is-dark" style="background: url({{data.userData.headerPic}}) no-repeat 100%; opacity: 0.4 ">
+            <div class="hero-body">
+                <div class="container section">
+                    <div class="has-text-right">
+                        <h1 class="title is-1">Login</h1> <br>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-footer">
+                <p class="has-text-centered">What about Me ?</p>
+            </div>
+        </section>
+    </div>
+    <div class="column is-4">
+        <section class="hero is-fullheight">
+            <div class="hero-heading">
+                <div class="section has-text-centered">
+                    <a class="is-large is-bold">LOGIN TO THE AWSOME</a>
+                </div>
+            </div>
+            <div class="hero-body">
+                <div class="container">
+                    <div class="columns">
+                        <div class="column is-8 is-offset-2">
+                            <h1 class="avatar has-text-centered section">
+                                <img src="{{data.userData.profilePic}}" class="card-avatar-img">
+                            </h1>
+                            <div id="loginError" class="wow fadeInDown" data-wow-duration="1s" data-wow-delay="1s" style="display: none;">
+                                <article class="message is-danger">
+                                    <div class="message-header">
+                                        <p>Error</p>
+                                        <button id="closeError" class="delete" aria-label="delete"></button>
+                                    </div>
+                                    <div class="message-body">
+                                        Invalid username/password
+                                    </div>
+                                </article>
+                            </div>
+                            <div class="spacer"></div>
+                            <div class="login-form">
+                                <p class="control has-icon has-icon-right">
+                                    <input id="username" class="input email-input" type="text" placeholder="jsmith">
+                                    <span class="icon user"><i class="fa fa-user"></i></span>
+                                </p>
+                                <div class="spacer"></div>
+                                <p class="control has-icon has-icon-right">
+                                    <input id="password" class="input password-input" type="password" placeholder="●●●●●●●">
+                                    <span class="icon user"><i class="fa fa-lock"></i></span>
+                                </p>
+                                <div class="spacer"></div>
+                                <p class="control login">
+                                    <button id="login" class="button is-success is-outlined is-large is-fullwidth">Login</button>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+<script src="/javascripts/login.js" type="application/javascript"></script>

@@ -1,17 +1,22 @@
 const express = require('express')
-const database = require('./database')
+const session = require('express-session')
+const fileStore = require('session-file-store')(session)
 const path = require('path')
+const dotenv = require('dotenv')
 const helmet = require('helmet')
 const compression = require('compression')
 const favicon = require('serve-favicon')
 const logger = require('morgan')
 const bodyParser = require('body-parser')
+const passport = require('./passport')
 
 let index = require('./routes/index')
 let feedback = require('./routes/feedback')
+let manager = require('./routes/manager')
+let dashboard = require('./routes/dashboard')
 
 const app = express()
-
+dotenv.config()
 // view engine setup
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'hbs')
@@ -21,12 +26,20 @@ app.set('view engine', 'hbs')
 app.use(helmet())
 app.use(compression())
 app.use(logger('dev'))
+//we will use this for store msg id to get reply quickly
+app.use(session({
+    name: 'cookie-id',
+    secret: process.env.MY_SECRET,
+    saveUninitialized: false,
+    resave: false,
+    store: new fileStore()
+}))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(express.static(path.join(__dirname, 'public')))
+app.use(passport.initialize())
+app.use(passport.session())
 
-app.use('/', index)
-app.use('/feedback', feedback)
 /*
 deactivate this route after finish your setup
 app.get('/setup', (req, res) => {
@@ -53,21 +66,10 @@ app.get('/setup', (req, res) => {
     res.send(settings)
 })
 */
-// catch 404 and forward to error handler
-app.use((req, res, next) => {
-    let err = new Error('Not Found')
-    err.status = 404
-  next(err)
-})
 
-// error handler
-app.use((err, req, res, next) => {
-  // set locals, only providing error in development
-  res.locals.message = err.message
-  res.locals.error = req.app.get('env') === 'development' ? err : {}
-  // render the error page
-  res.status(err.status || 500)
-  res.render('error')
-})
-
+//routes
+app.use('/', index)
+app.use('/feedback', feedback)
+app.use('/manager', manager)
+app.use('/dashboard', dashboard)
 module.exports = app
