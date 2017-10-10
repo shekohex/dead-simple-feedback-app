@@ -33,7 +33,7 @@ document.onreadystatechange = () => {
     }
     let lastMessageId = document.getElementById('last-message').value
     if(lastMessageId !== ''){
-        document.getElementById('last-message').scrollIntoView()
+        document.getElementById(lastMessageId).scrollIntoView()
     }
 }
 let messageText = document.getElementById('message')

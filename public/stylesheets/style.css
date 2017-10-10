@@ -37,7 +37,9 @@ body {
 .card-content {
   padding: 0;
 }
-
+.box {
+    word-break: break-word !important;
+}
 .send {
     border-radius: 35px;
 }

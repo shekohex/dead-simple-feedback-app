@@ -58,7 +58,6 @@ function sendReply(id, replyText) {
                     document.getElementById('reply-to-'+id+'-button').classList.remove('is-loading')
                     deleteRepliedMessage(id)
                     document.getElementById('replied').innerHTML = (parseInt(document.getElementById('replied').innerHTML) - 1).toString()
-                    document.getElementById('total-messages').innerHTML = (parseInt(document.getElementById('total-messages').innerHTML) - 1).toString()
                 }
             }
         }

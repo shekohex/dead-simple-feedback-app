@@ -42,6 +42,7 @@ app.use(passport.session())
 
 
 //deactivate this route after finish your setup
+/*
 app.get('/setup', (req, res) => {
    let settings = new database.websiteSettings({
        settings: {
@@ -67,7 +68,7 @@ app.get('/setup', (req, res) => {
     settings.save()
     res.send(settings)
 })
-
+*/
 
 //routes
 app.use('/', index)
