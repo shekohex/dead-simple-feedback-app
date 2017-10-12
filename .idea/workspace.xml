@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e5230065-899b-47fb-af52-412fd4e6ef7e" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.js" afterPath="$PROJECT_DIR$/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/dashboard.js" afterPath="$PROJECT_DIR$/public/javascripts/dashboard.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/main.js" afterPath="$PROJECT_DIR$/public/javascripts/main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/stylesheets/style.css" afterPath="$PROJECT_DIR$/public/stylesheets/style.css" />
-    </list>
+    <list default="true" id="e5230065-899b-47fb-af52-412fd4e6ef7e" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -29,8 +23,8 @@
       <file leaf-file-name="dashboard.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/javascripts/dashboard.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="520">
-              <caret line="60" column="0" lean-forward="false" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
+            <state relative-caret-position="52">
+              <caret line="42" column="35" lean-forward="true" selection-start-line="42" selection-start-column="35" selection-end-line="42" selection-end-column="35" />
               <folding>
                 <element signature="e#36#1219#0" expanded="false" />
                 <element signature="e#82#1217#0" expanded="false" />
@@ -210,12 +204,12 @@
       <option name="presentableId" value="Default" />
       <updated>1507288333834</updated>
       <workItem from="1507288350086" duration="309000" />
-      <workItem from="1507288680829" duration="78237000" />
+      <workItem from="1507288680829" duration="78438000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="78546000" />
+    <option name="totallyTimeSpent" value="78747000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1384" height="744" extended-state="6" />
@@ -1101,8 +1095,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/javascripts/dashboard.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="520">
-          <caret line="60" column="0" lean-forward="false" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
+        <state relative-caret-position="52">
+          <caret line="42" column="35" lean-forward="true" selection-start-line="42" selection-start-column="35" selection-end-line="42" selection-end-column="35" />
           <folding>
             <element signature="e#36#1219#0" expanded="false" />
             <element signature="e#82#1217#0" expanded="false" />
