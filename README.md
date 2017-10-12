@@ -2,9 +2,11 @@
 [![Greenkeeper badge](https://badges.greenkeeper.io/shekohex/dead-simple-feedback-app.svg)](https://greenkeeper.io/)
 [![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.png?v=103)](https://github.com/ellerbrock/open-source-badges/)
 [![MIT Licence](https://badges.frapsoft.com/os/mit/mit.png?v=103)](https://opensource.org/licenses/mit-license.php)
-
+[![Heroku](http://heroku-badge.herokuapp.com/?app=dead-simple-feedback&style=flat)](https://dead-simple-feedback.herokuapp.com/)
 [![Build Status](https://semaphoreci.com/api/v1/shekohex/dead-simple-feedback-app/branches/master/badge.svg)](https://semaphoreci.com/shekohex/dead-simple-feedback-app)
+
 # A Dead Simple Feedback App
+[![demo](https://www.prchecker.info/free-icons/128x128/demo_128_px.png)](https://dead-simple-feedback.herokuapp.com/)
 
 just a simple node-expressjs application with MongoDB as Database Engine for storing feedbacks
 
