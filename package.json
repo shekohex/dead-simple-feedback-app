@@ -25,6 +25,6 @@
     "session-file-store": "^1.1.2"
   },
   "devDependencies": {
-    "nodemon": "1.18.5"
+    "nodemon": "1.18.11"
   }
 }
